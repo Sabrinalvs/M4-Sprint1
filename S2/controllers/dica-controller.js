@@ -1,6 +1,8 @@
 export const dica = (app) =>{
     app.get('/tips', (req, res) => {
-        res.send({'Todas as dicas ': armazDica.dicas})
+        let indice = armazDica.dicas[Math.floor(Math.random() * armazDica.dicas.length)]
+        console.log(indice);
+        res.send({'Dica aleatória': indice.dica})
     })
     app.post('/create', (req, res) => {
         const novaDica = new Dica (req.body.dica);
